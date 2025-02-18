@@ -6,6 +6,7 @@ import {ScreensName} from '../../theme/strings';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import {StyleSheet} from 'react-native';
 import DummyScreen from '../../screens/mainScreen';
+import DummyScreen1 from '../../screens/mainScreen copy';
 import {DialIcon} from '../../assets/svg/Svgs';
 
 const Tab = createBottomTabNavigator();
@@ -34,10 +35,10 @@ export const BottomTabScreen: FC = () => {
             marginTop: -5,
           },
         }}
-        initialRouteName={ScreensName.CallsScreen}>
+        initialRouteName={ScreensName.DummyScreen}>
         <Tab.Screen
-          name={ScreensName.CallsScreen}
-          component={DummyScreen}
+          name={ScreensName.DummyScreen}
+          component={DummyScreen1}
           options={{
             title: 'Tab 1',
             tabBarIcon: ({color}) => (
@@ -46,8 +47,8 @@ export const BottomTabScreen: FC = () => {
           }}
         />
         <Tab.Screen
-          name={ScreensName.MessagesScreen}
-          component={DummyScreen}
+          name={ScreensName.DummyScreen1}
+          component={DummyScreen1}
           options={{
             title: 'Tab 2',
             tabBarIcon: ({color}) => (
@@ -56,7 +57,37 @@ export const BottomTabScreen: FC = () => {
           }}
         />
         <Tab.Screen
-          name={ScreensName.DialScreen}
+          name={ScreensName.DummyScreen2}
+          component={DummyScreen1}
+          options={{
+            title: 'Tab 2',
+            tabBarIcon: ({color}) => (
+              <DialIcon strokeColor={color} height={24} width={24} />
+            ),
+          }}
+        />
+         <Tab.Screen
+          name={ScreensName.DummyScreen3}
+          component={DummyScreen1}
+          options={{
+            title: 'Tab 2',
+            tabBarIcon: ({color}) => (
+              <DialIcon strokeColor={color} height={24} width={24} />
+            ),
+          }}
+        />
+         <Tab.Screen
+          name={ScreensName.DummyScreen4}
+          component={DummyScreen1}
+          options={{
+            title: 'Tab 2',
+            tabBarIcon: ({color}) => (
+              <DialIcon strokeColor={color} height={24} width={24} />
+            ),
+          }}
+        />
+        {/* <Tab.Screen
+          name={ScreensName.DummyScreen}
           component={DummyScreen}
           options={{
             title: 'Tab 3',
@@ -66,7 +97,7 @@ export const BottomTabScreen: FC = () => {
           }}
         />
         <Tab.Screen
-          name={ScreensName.VoicemailsScreen}
+          name={ScreensName.DummyScreen}
           component={DummyScreen}
           options={{
             title: 'Tab 4',
@@ -76,7 +107,7 @@ export const BottomTabScreen: FC = () => {
           }}
         />
         <Tab.Screen
-          name={ScreensName.ContactsScreen}
+          name={ScreensName.DummyScreen}
           component={DummyScreen}
           options={{
             title: 'Tab 5',
@@ -84,7 +115,7 @@ export const BottomTabScreen: FC = () => {
               <DialIcon strokeColor={color} height={23} width={23} />
             ),
           }}
-        />
+        /> */}
       </Tab.Navigator>
     </SafeAreaView>
   );

@@ -1,22 +1,17 @@
-import { Box, Text, View } from "@gluestack-ui/themed"
+import React from "react";
 import { Colors } from "../../theme/colors"
+import { Text, View } from "react-native";
 
 
 
 const DummyScreen = () => {
-
-
     return (
-        <Box
-        flex={1} 
-        justifyContent="center" 
-        alignItems="center" 
-      >
-        <Text color={Colors.black} fontSize={24} fontWeight="$bold">
+        <View>
+        <Text>
           Centered Text
         </Text>
-      </Box>
+      </View>
     )
 }
 
-export default DummyScreen
+export default DummyScreen;

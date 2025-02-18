@@ -16,8 +16,8 @@ const SplashScreen = () => {
     const timeout = setTimeout(() => {
       reset(
         isAuth && accessToken !== ''
-          ? ScreensName.DrawerNavigatorScreen
-          : ScreensName.AuthStackScreen,
+          ? ScreensName.AppStackScreen
+          : ScreensName.AppStackScreen,
         {},
       );
     }, 2000);

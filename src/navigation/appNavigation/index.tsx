@@ -10,7 +10,8 @@ import {createStackNavigator} from '@react-navigation/stack';
 // import ImagesPreviewScreen from '../../screens/imagesPreviewScreen';
 // import LiveCallScreen from '../../screens/liveCallScreen';
 // import CallDispositionScreen from '../../screens/callDispositionScreen';
-import DummyScreen from '../../screens/mainScreen';
+import { SafeAreaView } from 'react-native-safe-area-context';
+import {useTheme} from '../../theme/themeContext';
 
 const navOptionHandler = () => ({
   headerShown: false,
@@ -19,19 +20,17 @@ const navOptionHandler = () => ({
 const AppStack = createStackNavigator();
 
 export const AppStackScreen: FC = () => {
+  const {colors} = useTheme();
+  console.log("AppStackScreen is being rendered");
   return (
-    <>
+    <SafeAreaView style={{ flex: 1 }}>
       <AppStack.Navigator initialRouteName={ScreensName.BottomTabScreen}>
         <AppStack.Screen
           name={ScreensName.BottomTabScreen}
           component={BottomTabScreen}
           options={navOptionHandler}
         />
-        <AppStack.Screen
-          name={ScreensName.CallDispositionScreen}
-          component={DummyScreen}
-          options={navOptionHandler}
-        />
+       
         {/* <AppStack.Screen
           name={ScreensName.LiveCallScreen}
           component={LiveCallScreen}
@@ -68,6 +67,6 @@ export const AppStackScreen: FC = () => {
           options={navOptionHandler}
         /> */}
       </AppStack.Navigator>
-    </>
+    </SafeAreaView>
   );
 };

@@ -6,6 +6,7 @@ import {AuthStackScreen} from '../authNavigation';
 import SplashScreen from '../../components/splashScreen';
 import {useStore} from '../../zustand';
 import { AppStackScreen } from '../appNavigation';
+import { BottomTabScreen } from '../tabNavigation';
 
 const RootStack = createStackNavigator();
 
@@ -18,28 +19,21 @@ export const RootStackScreen: FC = () => {
 
   return (
     <RootStack.Navigator initialRouteName={ScreensName.SplashScreen}>
-      {!isAuth && accessToken === '' ? (
-        <>
           <RootStack.Screen
             name={ScreensName.SplashScreen}
             component={SplashScreen}
             options={navOptionHandler}
           />
-          <RootStack.Screen
-            name={ScreensName.AuthStackScreen}
-            component={AuthStackScreen}
-            options={navOptionHandler}
-          />
-        </>
-      ) :
-       (
-        <RootStack.Screen
-          name={ScreensName.DrawerNavigatorScreen}
+         <RootStack.Screen
+          name={ScreensName.AppStackScreen}
           component={AppStackScreen}
           options={navOptionHandler}
         />
-      )
-      }
+          {/* <RootStack.Screen
+            name={ScreensName.AuthStackScreen}
+            component={AuthStackScreen}
+            options={navOptionHandler}
+          /> */}
     </RootStack.Navigator>
   );
 };
