@@ -5,9 +5,14 @@ import {useTheme} from '../../theme/themeContext';
 import {ScreensName} from '../../theme/strings';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import {StyleSheet} from 'react-native';
-import DummyScreen from '../../screens/mainScreen';
-import DummyScreen1 from '../../screens/mainScreen copy';
-import {DialIcon} from '../../assets/svg/Svgs';
+import { HomeIcon, MessageIcon, NearbyIcon, ProfileIcon} from '../../assets/svg/Svgs';
+import { Image } from '@gluestack-ui/themed';
+import { screenwiseHeight, screenwiseWidth } from '../../utils/styleHelpers';
+import NearByScreen from '../../screens/nearbyScreen';
+import HomeScreen from '../../screens/homeScreen';
+import Sellingcreen from '../../screens/sellingScreen';
+import MessagesScreen from '../../screens/messagesScreen';
+import ProfileScreen from '../../screens/profileScreen';
 
 const Tab = createBottomTabNavigator();
 
@@ -28,94 +33,68 @@ export const BottomTabScreen: FC = () => {
             borderBottomWidth: StyleSheet.hairlineWidth,
             borderBottomColor: colors.textInputBorderColor,
           },
-          tabBarActiveTintColor: colors.buttonPrimaryColor,
+          tabBarActiveTintColor: colors.tabBarActiveColor,
           tabBarInactiveTintColor: colors.tabBarInactiveColor,
           tabBarLabelStyle: {
             ...fonts.captionSemiBold,
             marginTop: -5,
           },
         }}
-        initialRouteName={ScreensName.DummyScreen}>
+        initialRouteName={ScreensName.NearByScreen}>
         <Tab.Screen
-          name={ScreensName.DummyScreen}
-          component={DummyScreen1}
+          name={ScreensName.NearByScreen}
+          component={NearByScreen}
           options={{
-            title: 'Tab 1',
+            title: 'Nearby',
             tabBarIcon: ({color}) => (
-              <DialIcon height={22} width={22} strokeColor={color} />
+              <NearbyIcon height={22} width={22} strokeColor={color} />
             ),
           }}
         />
         <Tab.Screen
-          name={ScreensName.DummyScreen1}
-          component={DummyScreen1}
+          name={ScreensName.HomeScreen}
+          component={HomeScreen}
           options={{
-            title: 'Tab 2',
+            title: 'Home',
             tabBarIcon: ({color}) => (
-              <DialIcon strokeColor={color} height={24} width={24} />
+              <HomeIcon strokeColor={color} height={24} width={24} />
             ),
           }}
         />
         <Tab.Screen
-          name={ScreensName.DummyScreen2}
-          component={DummyScreen1}
+          name={ScreensName.Sellingcreen}
+          component={Sellingcreen}
           options={{
-            title: 'Tab 2',
             tabBarIcon: ({color}) => (
-              <DialIcon strokeColor={color} height={24} width={24} />
+              <Image source={require('../../assets/images/selling.png')} 
+              width={screenwiseWidth(57)}
+              height={screenwiseHeight(57)}
+              resizeMode='contain'
+              marginBottom={28}/>
+            ),
+            title: 'Selling',
+          }}
+        />
+         <Tab.Screen
+          name={ScreensName.MessagesScreen}
+          component={MessagesScreen}
+          options={{
+            title: 'Messages',
+            tabBarIcon: ({color}) => (
+              <MessageIcon strokeColor={color} height={24} width={24} />
             ),
           }}
         />
          <Tab.Screen
-          name={ScreensName.DummyScreen3}
-          component={DummyScreen1}
+          name={ScreensName.ProfileScreen}
+          component={ProfileScreen}
           options={{
-            title: 'Tab 2',
+            title: 'Profile',
             tabBarIcon: ({color}) => (
-              <DialIcon strokeColor={color} height={24} width={24} />
+              <ProfileIcon strokeColor={color} height={24} width={24} />
             ),
           }}
         />
-         <Tab.Screen
-          name={ScreensName.DummyScreen4}
-          component={DummyScreen1}
-          options={{
-            title: 'Tab 2',
-            tabBarIcon: ({color}) => (
-              <DialIcon strokeColor={color} height={24} width={24} />
-            ),
-          }}
-        />
-        {/* <Tab.Screen
-          name={ScreensName.DummyScreen}
-          component={DummyScreen}
-          options={{
-            title: 'Tab 3',
-            tabBarIcon: ({color}) => (
-              <DialIcon strokeColor={color} height={22} width={22} />
-            ),
-          }}
-        />
-        <Tab.Screen
-          name={ScreensName.DummyScreen}
-          component={DummyScreen}
-          options={{
-            title: 'Tab 4',
-            tabBarIcon: ({color}) => (
-              <DialIcon strokeColor={color} height={24} width={24} />
-            ),
-          }}
-        />
-        <Tab.Screen
-          name={ScreensName.DummyScreen}
-          component={DummyScreen}
-          options={{
-            title: 'Tab 5',
-            tabBarIcon: ({color}) => (
-              <DialIcon strokeColor={color} height={23} width={23} />
-            ),
-          }}
-        /> */}
       </Tab.Navigator>
     </SafeAreaView>
   );
