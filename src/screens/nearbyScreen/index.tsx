@@ -5,9 +5,11 @@ import { useTheme } from "../../theme/themeContext";
 import { screenwiseHeight, screenwiseWidth } from "../../utils/styleHelpers";
 import AppText from "../../components/text";
 import { getStyles } from './styles';
-import { DialIcon, DistanceIcon, EmailIcon, FeaturedIcon, NearbyIcon, PhoneIcon, WebIcon } from "../../assets/svg/Svgs";
+import { DistanceIcon, EmailIcon,  PhoneIcon, WebIcon } from "../../assets/svg/Svgs";
 import IconButton from "../../components/iconButton";
-import { ListItem } from "./listItem";
+import { VehiclesComponent } from "./vehicles";
+import { HomeComponent } from "./home";
+import { CardView } from "../../components/cardView";
 
 const { width } = Dimensions.get("window");
 
@@ -36,13 +38,20 @@ const NearByScreen = () => {
       onPress: () => console.log("Email", "Press"),
     },
   ];
-  
-  const HomeComponent = () => {
+
+  const LocationComponent = () => {
     return (
-      <FlatList
-      data={new Array(10)}
-      renderItem={() => <ListItem />}
-      />
+      <CardView style={{
+        marginHorizontal: 12,
+        alignItems:'center'
+    }}>
+        <Image
+            width={screenwiseWidth(363)}
+            height={screenwiseHeight(372)}
+            resizeMode="contain"
+            marginVertical={12}
+            source={require('../../assets/images/map.png')} />
+    </CardView>
     )
   }
 
@@ -53,6 +62,7 @@ const NearByScreen = () => {
 
 
       <ScrollView
+        nestedScrollEnabled={true}
         flex={1}>
         {/* Container */}
         <>
@@ -61,6 +71,7 @@ const NearByScreen = () => {
             {/* Image Wrapper for Rounded Corners */}
             <Box width={width} height={268} borderTopLeftRadius={16} borderTopRightRadius={16} overflow="hidden" paddingBottom={50}>
               <Image
+              alt="Example Image"
                 source={require("../../assets/images/placeholder.jpg")}
                 width={width}
                 height={screenwiseHeight(240)}
@@ -69,6 +80,7 @@ const NearByScreen = () => {
 
             </Box>
             <Image
+            alt="Example Image"
               source={require("../../assets/images/storeLogo.png")}
               position="absolute"
               top={187} left={30} right={0}
@@ -137,8 +149,8 @@ const NearByScreen = () => {
 
 
           {selectedTab === "Home" && HomeComponent()}
-          {selectedTab === "Vehicles" && HomeComponent()}
-          {selectedTab === "Location" && HomeComponent()}
+          {selectedTab === "Vehicles" && VehiclesComponent()}
+          {selectedTab === "Location" && LocationComponent()}
         </>
       </ScrollView>
     </>

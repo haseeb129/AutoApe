@@ -27,6 +27,7 @@ export const ScreensName = {
 };
 
 export const Strings = {
+  AutoAPe: "AutoAPe",
   MemberLogin: 'Member Login',
   TheAllInOneMarketingAndBusinessSoftwareSolution:
     'The All In One Marketing and Business Software Solution',

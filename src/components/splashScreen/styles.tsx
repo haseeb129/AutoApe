@@ -9,7 +9,7 @@ export const getStyes = () => {
       flex: 1,
       height: '100%',
       width: '100%',
-      backgroundColor: colors.splashScreenColor,
+      backgroundColor: colors.appBackground,
     },
     splashIcon: {
       marginTop: hp(38),
@@ -17,7 +17,7 @@ export const getStyes = () => {
       justifyContent: 'center',
     },
     appNameStyle: {
-      color: colors.white,
+      color: colors.black,
       marginTop: hp(1),
     },
     settingUpStyle: {
